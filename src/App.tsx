@@ -27,6 +27,9 @@ const App = ({ brand }: Props) => {
       { ...task, id: getCurrentTimestamp(), completed: false },
     ]);
 
+  const deleteTask = (id: number) =>
+    setTasks(tasks.filter((task) => task.id !== id));
+
   return (
     <div className="bg-dark text-white" style={{ height: "100vh" }}>
       <Navbar brand={brand} />
@@ -35,11 +38,11 @@ const App = ({ brand }: Props) => {
       <main className="container p-4">
         <div className="row">
           <div className="col-md-4">
-            <TaskForm addTask={addTask} />
+            <TaskForm addTask={addTask}  />
           </div>
           <div className="col-md-8">
             <div className="row">
-              <TaskList tasks={tasks} />
+              <TaskList tasks={tasks} deleteTask={deleteTask} />
             </div>
           </div>
         </div>
