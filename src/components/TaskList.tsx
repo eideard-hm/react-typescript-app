@@ -8,8 +8,8 @@ interface Props {
 const TaskList = ({ tasks }: Props) => {
   return (
     <>
-      {tasks.map((task) => (
-        <div className="col-md-4">
+      {tasks.map((task, i) => (
+        <div className="col-md-4 p-2" key={i}>
           <TaskCard task={task} />
         </div>
       ))}
